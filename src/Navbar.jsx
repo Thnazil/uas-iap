@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
-function Navbar() {
+const Navbar = ({ onSearch }) => {
+  const handleChange = (e) => {
+    onSearch(e.target.value);
+  };
   return (
     <div className="navbar relative bg-base-100 shadow-sm border border-base-300 px-4">
       <div className="flex items-center gap-x-4 flex-1">
@@ -15,9 +18,11 @@ function Navbar() {
       <div className="flex items-center gap-2">
         <input
           type="text"
-          placeholder="Search"
-          className="input input-bordered w-24 md:w-auto focus:outline-none"
+          placeholder="Cari berita..."
+          onChange={handleChange}
+          className="p-2 rounded text-black w-full"
         />
+
         <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
@@ -27,7 +32,7 @@ function Navbar() {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                src="IMG_20250602_150509_168.jpg"
               />
             </div>
           </div>
@@ -45,5 +50,5 @@ function Navbar() {
       </div>
     </div>
   );
-}
+};
 export default Navbar;
